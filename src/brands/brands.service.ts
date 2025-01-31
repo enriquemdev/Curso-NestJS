@@ -44,7 +44,7 @@ export class BrandsService {
   update(id: string, updateBrandDto: UpdateBrandDto) {
     this.findOne(id);
 
-    this.brands = this.brands.map( brand => {
+    this.brands = this.brands.map((brand) => {
       if (brand.id === id) {
         return {
           ...brand,
@@ -58,6 +58,10 @@ export class BrandsService {
   }
 
   remove(id: string) {
-    this.brands =  this.brands.filter(brand => brand.id !== id);
+    this.brands = this.brands.filter((brand) => brand.id !== id);
+  }
+
+  fillBrandsWithSeedData(brands: Brand[]) {
+    this.brands = brands;
   }
 }
